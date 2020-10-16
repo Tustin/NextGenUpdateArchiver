@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -157,11 +158,51 @@ namespace NextGenUpdateArchiver
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception($"Unable to get href for thread id {tid}", ex);
+                        throw new Exception($"Unable to get thread id {tid}", ex);
                     }
+                }
+                else
+                {
+                    // Not a threadbit, silently continue.
+                    continue;
                 }
 
                 threads.Add(thread);
+
+                var threadTitleElem = t.SelectSingleNode(".//div[contains(@class, 'threadbit_thread_title')]");
+
+                if (threadTitleElem == default)
+                {
+                    throw new Exception($"Unable to get thread name for thread {tid}");
+                }
+
+                thread.Title = threadTitleElem.InnerText.Trim();
+
+                var isStuckElem = t.SelectSingleNode(".//span[contains(@class,'label label-info')]");
+                if (isStuckElem != default)
+                {
+                    thread.Stickied = true;
+                }
+
+                var isClosedElem = t.SelectSingleNode(".//span[contains(@class,'label label-danger')]");
+                if (isClosedElem != default)
+                {
+                    thread.Closed = true;
+                }
+
+                // Try to get views.                                            v lol
+                var viewsElem = t.SelectSingleNode(".//div[@style='margin-bottom: 2px; font-size: 15px;']");
+                if (viewsElem != default)
+                {
+                    var matches = Regex.Match(viewsElem.InnerText, "Views: (\\d+(,\\d+)*)");
+                    if (matches.Success)
+                    {
+                        if (int.TryParse(matches.Groups[1].ToString(), NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out int views))
+                        {
+                            thread.Views = views;
+                        }
+                    }
+                }
 
                 if (onlyParseThreads)
                 {
@@ -169,7 +210,7 @@ namespace NextGenUpdateArchiver
                     continue;
                 }
 
-                // Now let's grab each thread page and post.
+                // Now let's grab each thread page and it's posts.
                 var threadDocument = await ScrapeThread(thread.Id);
 
                 if (threadDocument == null)
@@ -177,7 +218,30 @@ namespace NextGenUpdateArchiver
                     Console.WriteLine("Unable to fetch thread document.");
                 }
 
-                // usernameblock
+                var paginator = threadDocument.DocumentNode.SelectSingleNode("//ul[@class='pagination']");
+                if (paginator == default)
+                {
+                    // No paginator so there's only 1 page.
+                    Console.WriteLine($"Only 1 page detected for '{thread.Id}'");
+                    thread.PageCount = 1;
+                }
+                else
+                {
+                    try
+                    {
+                        var pages = paginator.SelectNodes(".//li");
+                        var lastPage = pages[pages.Count - 2];
+
+                        var lastPageParsed = int.Parse(lastPage.InnerText.Trim(Environment.NewLine.ToCharArray()));
+
+                        thread.PageCount = lastPageParsed;
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"Unable to parse last page number for thread {thread.Id}", ex);
+                    }
+                }
+
                 // Get all posts.
                 var posts = threadDocument.DocumentNode.SelectNodes("//div[starts-with(@id, 'post_')]");
 
@@ -215,6 +279,12 @@ namespace NextGenUpdateArchiver
                         continue;
                     }
 
+                    if (thread.Posts.Any(a => a.Id == post.Id))
+                    {
+                        // We already have this post saved (maybe from a previous cache or because it's the first post on the thread). Skip it.
+                        continue;
+                    }
+
                     // Get poster name.
                     var usernameBlock = p.SelectSingleNode(".//div[@id='usernameblock']");
                     if (usernameBlock == default)
@@ -223,7 +293,22 @@ namespace NextGenUpdateArchiver
                     }
                     else
                     {
-                        post.Poster = usernameBlock.InnerText.Trim();
+                        post.Username = usernameBlock.InnerText.Trim();
+                        var linkElem = usernameBlock.ParentNode;
+                        var link = linkElem.Attributes["href"].Value;
+                        if (link != "#")
+                        {
+                            // Not deleted.
+                            var matches = Regex.Match(link, "/forums/members/(\\d*)");
+                            if (matches.Success)
+                            {
+                                var userIdGroup = matches.Groups[1].Value;
+                                if (int.TryParse(userIdGroup, out int userId))
+                                {
+                                    post.UserId = userId;
+                                }
+                            }
+                        }
                     }
 
                     // Get post date.
@@ -275,7 +360,7 @@ namespace NextGenUpdateArchiver
                     {
                         Console.WriteLine("Found thanks for post");
 
-                        var thanksBoxListElem = thanksBoxElem.SelectSingleNode("//div[@id='nguheader']");
+                        var thanksBoxListElem = thanksBoxElem.SelectSingleNode(".//div[@id='nguheader']");
                         if (thanksBoxListElem != default)
                         {
                             var thanksList = thanksBoxListElem.SelectNodes(".//a");
@@ -287,7 +372,11 @@ namespace NextGenUpdateArchiver
                             }
                         }
                     }
+
+                    thread.Posts.Add(post);
                 }
+
+                File.WriteAllText($"threads/{thread.Id}.json", JsonConvert.SerializeObject(thread));
             }
 
             return threads;
