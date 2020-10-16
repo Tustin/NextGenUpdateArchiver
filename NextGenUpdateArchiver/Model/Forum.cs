@@ -16,6 +16,7 @@ namespace NextGenUpdateArchiver.Model
         public List<Forum> SubForums { get; set; }
         public int PageCount { get; set; }
         public bool IsCategory { get; set; }
-        public List<Thread> Threads { get; set; }
+        // We are only saving the thread ids here because storing a whole thread object for each thread will be very consuming.
+        public List<int> ThreadsIds { get; set; } = new List<int>();
     }
 }

@@ -6,6 +6,7 @@ namespace NextGenUpdateArchiver.Model
 {
     public class Thread
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public Dictionary<int, Post> Posts { get; set; }
         public Profile Poster { get; set; }

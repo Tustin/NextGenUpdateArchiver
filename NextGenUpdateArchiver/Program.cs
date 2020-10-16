@@ -11,10 +11,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
+using NGUThread = NextGenUpdateArchiver.Model.Thread;
 
 namespace NextGenUpdateArchiver
 {
@@ -58,13 +61,13 @@ namespace NextGenUpdateArchiver
                     await UsersDumpTask();
                     break;
                 case "threads":
-                    List<int> listOfForums = default;
+                    List<Forum> listOfForums = default;
                     if (args.Length == 2)
                     {
                         try
                         {
                             var file = File.ReadAllText(args[1]);
-                            listOfForums = JsonConvert.DeserializeObject<List<int>>(file);
+                            listOfForums = JsonConvert.DeserializeObject<List<Forum>>(file);
                         }
                         catch (Exception ex)
                         {
@@ -88,7 +91,7 @@ namespace NextGenUpdateArchiver
             }
         }
 
-        static async Task ThreadsDumpTask(List<int> forumIds = default)
+        static async Task ThreadsDumpTask(List<Forum> forums = default)
         {
             var forumHome = "https://www.nextgenupdate.com/forums/";
             if (!Directory.Exists("threads"))
@@ -96,11 +99,7 @@ namespace NextGenUpdateArchiver
                 Directory.CreateDirectory("threads");
             }
 
-            if (forumIds != default)
-            {
-                // We were fed in a list of forum ids to exclusively check.
-            }
-            else
+            if (forums == default)
             {
                 var response = await client.GetAsync(forumHome);
 
@@ -112,10 +111,9 @@ namespace NextGenUpdateArchiver
 
                     var forumsElem = doc.DocumentNode.SelectNodes("//div[starts-with(@id, 'forum')]");
 
-                    var forums = await ParseForumListings(forumsElem);
+                    forums = await ParseForumListings(forumsElem);
 
                     File.WriteAllText("forums.json", JsonConvert.SerializeObject(forums));
-
                 }
                 else
                 {
@@ -123,6 +121,212 @@ namespace NextGenUpdateArchiver
                     Environment.Exit(-1);
                 }
             }
+
+            //// Now let's dump our threads...
+            //foreach (var forum in forums)
+            //{
+            //    if (forum.ThreadsIds == default)
+            //    {
+            //        // If we have no threads, we gotta start from the top.
+            //        forum.ThreadsIds.Add((await ParseThreadListing(threadsElem)));
+            //    }
+            //}
+        }
+
+        static async Task<List<NGUThread>> ParseThreadListing(HtmlNodeCollection nodes, bool onlyParseThreads = false)
+        {
+            var threads = new List<NGUThread>();
+            foreach (var t in nodes)
+            {
+                var tid = t.Attributes["id"].Value;
+
+                var thread = new NGUThread();
+
+                // We cant use regex in the xpath with htmlagilitypack so we will do that here...
+                if (Regex.IsMatch(tid, "^threadbit_\\d*$"))
+                {
+                    try
+                    {
+                        if (!int.TryParse(tid[("threadbit_".Length)..], out var tidOnly))
+                        {
+                            Console.WriteLine($"[warn] Unable to parse thread id integer from {tid}");
+                            continue;
+                        }
+
+                        thread.Id = tidOnly;
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception($"Unable to get href for thread id {tid}", ex);
+                    }
+                }
+
+                threads.Add(thread);
+
+                if (onlyParseThreads)
+                {
+                    // If we only want to get the thread ids for each forum, stop here.
+                    continue;
+                }
+
+                // Now let's grab each thread page and post.
+                var threadDocument = await ScrapeThread(thread.Id);
+
+                if (threadDocument == null)
+                {
+                    Console.WriteLine("Unable to fetch thread document.");
+                }
+
+                // usernameblock
+                // Get all posts.
+                var posts = threadDocument.DocumentNode.SelectNodes("//div[starts-with(@id, 'post_')]");
+
+                if (posts == default)
+                {
+                    throw new Exception("Failed finding posts in thread");
+                }
+
+                foreach (var p in posts)
+                {
+                    var pid = p.Attributes["id"].Value;
+                    var post = new Post();
+
+                    // Get post ID.
+                    if (Regex.IsMatch(pid, "^post_\\d*$"))
+                    {
+                        try
+                        {
+                            if (!int.TryParse(pid[("post_".Length)..], out var pidOnly))
+                            {
+                                Console.WriteLine($"[warn] Unable to parse post id integer from {pid}");
+                                continue;
+                            }
+
+                            post.Id = pidOnly;
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception($"Unable to parse post id {pid}", ex);
+                        }
+                    }
+                    else
+                    {
+                        // Not a match, silently continue.
+                        continue;
+                    }
+
+                    // Get poster name.
+                    var usernameBlock = p.SelectSingleNode(".//div[@id='usernameblock']");
+                    if (usernameBlock == default)
+                    {
+                        Console.WriteLine($"[warn] No username block found for {post.Id}");
+                    }
+                    else
+                    {
+                        post.Poster = usernameBlock.InnerText.Trim();
+                    }
+
+                    // Get post date.
+                    var panelHeading = p.SelectSingleNode(".//div[@class='panel-heading']");
+                    if (panelHeading == default)
+                    {
+                        Console.WriteLine($"[warn] No panel heading found for {post.Id}");
+                    }
+                    else
+                    {
+                        var postDateElem = panelHeading.SelectSingleNode(".//span");
+                        // Dumbass hack here because for some reason agility pack likes to return any nested elements in InnerText lol
+                        var headingElems = panelHeading.SelectNodes(".//span");
+                        if (headingElems == null || headingElems.Count < 2)
+                        {
+                            Console.Write("[warn] Unable to find span elem for post date.");
+                        }
+                        else
+                        {
+                            var actualDateElem = headingElems[0].InnerText;
+                            var garbage = headingElems[1].InnerText;
+                            var dateDirty = actualDateElem.Replace(garbage, string.Empty);
+                            var cleaned = dateDirty.Trim(Environment.NewLine.ToCharArray()).Trim();
+                            if (DateTime.TryParse(cleaned, out var postDate))
+                            {
+                                post.PostDate = postDate;
+                            }
+                            else
+                            {
+                                Console.Write($"[warn] Unable to parse post date '{cleaned}' to DateTime.");
+                            }
+                        }
+                    }
+
+                    // Post contents (HTML for now...)
+                    var postContentElem = p.SelectSingleNode(".//div[@class='postcontent']");
+                    if (postContentElem == default)
+                    {
+                        Console.WriteLine($"[warn] No post content found for post {post.Id}");
+                    }
+                    else
+                    {
+                        post.Contents = postContentElem.InnerHtml;
+                    }
+
+                    // Try to get thanks.
+                    var thanksBoxElem = threadDocument.DocumentNode.SelectSingleNode($"//li[@id='post_thanks_box_{post.Id}']");
+                    if (thanksBoxElem != default)
+                    {
+                        Console.WriteLine("Found thanks for post");
+
+                        var thanksBoxListElem = thanksBoxElem.SelectSingleNode("//div[@id='nguheader']");
+                        if (thanksBoxListElem != default)
+                        {
+                            var thanksList = thanksBoxListElem.SelectNodes(".//a");
+                            if (thanksList != default && thanksList.Count > 0)
+                            {
+                                post.Thanks.AddRange(
+                                    thanksList.Select(a => a.InnerText.Trim())
+                                    );
+                            }
+                        }
+                    }
+                }
+            }
+
+            return threads;
+        }
+
+        static async Task<HtmlDocument> ScrapeThread(int id, int tries = 0, bool triggeredLongWait = false)
+        {
+            if (tries == 5)
+            {
+                Console.WriteLine("We got stuck quite a few times. Doing a long wait...");
+                System.Threading.Thread.Sleep(TimeSpan.FromMinutes(5));
+                await ScrapeThread(id, tries++, true);
+            }
+
+            var response = await client.GetAsync($"/forums/showthread.php?t={id}");
+            if (response.IsSuccessStatusCode)
+            {
+                var doc = new HtmlDocument();
+                doc.LoadHtml(await response.Content.ReadAsStringAsync());
+                return doc;
+            }
+            else if (response.StatusCode == HttpStatusCode.NotFound)
+            {
+                Console.WriteLine($"Post {id} not found");
+            }
+            else if (response.StatusCode == HttpStatusCode.BadGateway)
+            {
+                if (triggeredLongWait)
+                {
+                    Console.WriteLine("No luck after waiting a long time. Let's try again later.");
+                    Environment.Exit(-1);
+                }
+
+                // Banned. Let's wait.
+                Console.WriteLine("Banned. Waiting 5 seconds...");
+                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(5));
+                await ExtractUser(id, tries++);
+            }
+            return default;
         }
 
         static async Task<List<Forum>> ParseForumListings(HtmlNodeCollection nodes)
@@ -234,6 +438,12 @@ namespace NextGenUpdateArchiver
                     forum.SubForums = await ParseForumListings(forums);
                 }
 
+                // Get threads.. Here we go.
+                var threadsElem = doc.DocumentNode.SelectNodes("//div[starts-with(@id, 'threadbit')]");
+
+                // Set the threads ids.
+                forum.ThreadsIds = (await ParseThreadListing(threadsElem)).Select(a => a.Id).ToList();
+
                 return forum;
             }
             else if (response.StatusCode == HttpStatusCode.NotFound)
@@ -255,11 +465,6 @@ namespace NextGenUpdateArchiver
             }
 
             return default;
-        }
-
-        static async Task ScrapeThread(int id)
-        {
-            // TODO.
         }
 
         static async Task UsersDumpTask()
