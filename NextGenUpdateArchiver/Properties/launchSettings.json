@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "NextGenUpdateArchiver": {
+      "commandName": "Project",
+      "commandLineArgs": "threads"
+    }
+  }
+}
