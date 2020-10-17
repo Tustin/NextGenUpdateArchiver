@@ -44,11 +44,22 @@ namespace NextGenUpdateArchiver
             client.BaseAddress = baseAddress;
             clientHandler.CookieContainer = cookieContainer;
 
+            string cookieName = Environment.GetEnvironmentVariable("NGU_SESSION_NAME");
+            string cookieValue = Environment.GetEnvironmentVariable("NGU_SESSION_VALUE");
+
+            if (File.Exists("cookies.json"))
+            {
+                var cookies = JsonConvert.DeserializeObject<List<string>>(File.ReadAllText("cookies.json"));
+                cookieName = cookies[0];
+                cookieValue = cookies[1];
+
+                Console.WriteLine("Loaded from cookies.json");
+            }
+
             try
             {
                 cookieContainer.Add(baseAddress, new Cookie(
-                     Environment.GetEnvironmentVariable("NGU_SESSION_NAME"),
-                     Environment.GetEnvironmentVariable("NGU_SESSION_VALUE")
+                    cookieName, cookieValue
                  ));
             }
             catch (Exception)
@@ -620,7 +631,7 @@ namespace NextGenUpdateArchiver
                 Directory.CreateDirectory("users");
             }
 
-            var startUserId = 1634751; // 1512540; // 1196456;
+            var startUserId = 1653277; // 1512540; // 1196456;
 
             var path = "users.json";
             using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read))
@@ -639,7 +650,7 @@ namespace NextGenUpdateArchiver
 
             if (savedUsers.Count != 0)
             {
-                startUserId = savedUsers.Last().UserId;
+                startUserId = savedUsers.First().UserId;
             }
 
             var enumerateCount = 2000000 - startUserId;
