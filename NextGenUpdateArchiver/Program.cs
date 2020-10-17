@@ -26,7 +26,7 @@ namespace NextGenUpdateArchiver
     {
         static Uri baseAddress = new Uri("https://www.nextgenupdate.com");
         static CookieContainer cookieContainer = new CookieContainer();
-        static ConcurrentBag<int> savedUserIds = new ConcurrentBag<int>();
+        static ConcurrentBag<Profile> savedUsers = new ConcurrentBag<Profile>();
         static HttpClientHandler clientHandler = new HttpClientHandler();
         static HttpClient client = new HttpClient(clientHandler);
 
@@ -50,7 +50,7 @@ namespace NextGenUpdateArchiver
                      Environment.GetEnvironmentVariable("NGU_SESSION_VALUE")
                  ));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Console.WriteLine("[warn] Unable to add NGU session cookie. Will proceed as guest (might miss information). Set env variable for NGU_SESSION_NAME and NGU_SESSION_VALUE.");
             }
@@ -88,13 +88,14 @@ namespace NextGenUpdateArchiver
             using (FileStream fs = new FileStream("users.json", FileMode.OpenOrCreate, FileAccess.Write, FileShare.Read))
             using (StreamWriter writer = new StreamWriter(fs))
             {
-                writer.Write(JsonConvert.SerializeObject(savedUserIds));
+                writer.Write(JsonConvert.SerializeObject(savedUsers));
             }
         }
 
         static async Task ThreadsDumpTask(List<Forum> forums = default)
         {
             var forumHome = "https://www.nextgenupdate.com/forums/";
+
             if (!Directory.Exists("threads"))
             {
                 Directory.CreateDirectory("threads");
@@ -102,11 +103,10 @@ namespace NextGenUpdateArchiver
 
             if (forums == default)
             {
-                var response = await client.GetAsync(forumHome);
+                var response = await Get(forumHome);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var forumList = new List<Forum>();
                     var doc = new HtmlDocument();
                     doc.LoadHtml(await response.Content.ReadAsStringAsync());
 
@@ -122,21 +122,14 @@ namespace NextGenUpdateArchiver
                     Environment.Exit(-1);
                 }
             }
-
-            //// Now let's dump our threads...
-            //foreach (var forum in forums)
-            //{
-            //    if (forum.ThreadsIds == default)
-            //    {
-            //        // If we have no threads, we gotta start from the top.
-            //        forum.ThreadsIds.Add((await ParseThreadListing(threadsElem)));
-            //    }
-            //}
         }
 
-        static async Task<List<NGUThread>> ParseThreadListing(HtmlNodeCollection nodes, bool onlyParseThreads = false)
+        static async Task<List<NGUThread>> ParseThreadListing(Forum forum, HtmlNodeCollection nodes = default, bool onlyParseThreads = false)
         {
             var threads = new List<NGUThread>();
+
+            // var threadsElem = doc.DocumentNode.SelectNodes("//div[starts-with(@id, 'threadbit')]");
+
             foreach (var t in nodes)
             {
                 var tid = t.Attributes["id"].Value;
@@ -382,16 +375,10 @@ namespace NextGenUpdateArchiver
             return threads;
         }
 
-        static async Task<HtmlDocument> ScrapeThread(int id, int tries = 0, bool triggeredLongWait = false)
+        static async Task<HtmlDocument> ScrapeThread(int id)
         {
-            if (tries == 5)
-            {
-                Console.WriteLine("We got stuck quite a few times. Doing a long wait...");
-                System.Threading.Thread.Sleep(TimeSpan.FromMinutes(5));
-                await ScrapeThread(id, tries++, true);
-            }
+            var response = await Get($"/forums/showthread.php?t={id}");
 
-            var response = await client.GetAsync($"/forums/showthread.php?t={id}");
             if (response.IsSuccessStatusCode)
             {
                 var doc = new HtmlDocument();
@@ -402,19 +389,7 @@ namespace NextGenUpdateArchiver
             {
                 Console.WriteLine($"Post {id} not found");
             }
-            else if (response.StatusCode == HttpStatusCode.BadGateway)
-            {
-                if (triggeredLongWait)
-                {
-                    Console.WriteLine("No luck after waiting a long time. Let's try again later.");
-                    Environment.Exit(-1);
-                }
 
-                // Banned. Let's wait.
-                Console.WriteLine("Banned. Waiting 5 seconds...");
-                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(5));
-                await ExtractUser(id, tries++);
-            }
             return default;
         }
 
@@ -454,15 +429,8 @@ namespace NextGenUpdateArchiver
 
         static async Task<Forum> ScrapeForumListing(int id, int tries = 0, bool triggeredLongWait = false)
         {
-            if (tries == 5)
-            {
-                Console.WriteLine("We got stuck quite a few times. Doing a long wait...");
-                System.Threading.Thread.Sleep(TimeSpan.FromMinutes(5));
-                await ScrapeForumListing(id, tries++, true);
-            }
-
             // Ty Beach for leaving the old vBulletin forum links!
-            var response = await client.GetAsync($"/forums/forumdisplay.php?f={id}");
+            var response = await Get($"/forums/forumdisplay.php?f={id}");
             if (response.IsSuccessStatusCode)
             {
                 var forum = new Forum(id);
@@ -527,30 +495,20 @@ namespace NextGenUpdateArchiver
                     forum.SubForums = await ParseForumListings(forums);
                 }
 
+                // Now we can begin dumping the threads and posts.
+
+
                 // Get threads.. Here we go.
                 var threadsElem = doc.DocumentNode.SelectNodes("//div[starts-with(@id, 'threadbit')]");
 
                 // Set the threads ids.
-                forum.ThreadsIds = (await ParseThreadListing(threadsElem)).Select(a => a.Id).ToList();
+                forum.ThreadsIds = (await ParseThreadListing(forum, threadsElem)).Select(a => a.Id).ToList();
 
                 return forum;
             }
             else if (response.StatusCode == HttpStatusCode.NotFound)
             {
                 Console.WriteLine($"Forum id {id} not found");
-            }
-            else if (response.StatusCode == HttpStatusCode.BadGateway)
-            {
-                if (triggeredLongWait)
-                {
-                    Console.WriteLine("No luck after waiting a long time. Let's try again later.");
-                    Environment.Exit(-1);
-                }
-
-                // Banned. Let's wait.
-                Console.WriteLine("Banned. Waiting 5 seconds...");
-                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(5));
-                await ScrapeForumListing(id, tries++);
             }
 
             return default;
@@ -563,7 +521,7 @@ namespace NextGenUpdateArchiver
                 Directory.CreateDirectory("users");
             }
 
-            var startUserId = 1512540; // 1196456;
+            var startUserId = 1634751; // 1512540; // 1196456;
 
             var path = "users.json";
             using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read))
@@ -572,17 +530,17 @@ namespace NextGenUpdateArchiver
                 var content = reader.ReadToEnd();
                 if (content != string.Empty)
                 {
-                    savedUserIds = new ConcurrentBag<int>(
-                        JsonConvert.DeserializeObject<List<int>>(
+                    savedUsers = new ConcurrentBag<Profile>(
+                        JsonConvert.DeserializeObject<List<Profile>>(
                             content
-                            ).OrderBy(i => i)
+                            ).OrderBy(a => a.UserId)
                         );
                 }
             }
 
-            if (savedUserIds.Count != 0)
+            if (savedUsers.Count != 0)
             {
-                startUserId = savedUserIds.Last();
+                startUserId = savedUsers.Last().UserId;
             }
 
             var enumerateCount = 2000000 - startUserId;
@@ -598,26 +556,88 @@ namespace NextGenUpdateArchiver
 
         }
 
-        static async Task ExtractUser(int userId, int tries = 0, bool triggeredLongWait = false)
+        static async Task ExtractUser(int userId)
         {
-            if (tries == 5)
-            {
-                Console.WriteLine("We got stuck quite a few times. Doing a long wait...");
-                System.Threading.Thread.Sleep(TimeSpan.FromMinutes(5));
-                await ExtractUser(userId, tries++, true);
-            }
+            var response = await Get($"/forums/members/{userId}-username.html");
 
-            var response = await client.GetAsync($"/forums/members/{userId}-username.html");
             if (response.IsSuccessStatusCode)
             {
-                File.WriteAllText($"users/{userId}.html", await response.Content.ReadAsStringAsync());
-                savedUserIds.Add(userId);
+                var doc = new HtmlDocument();
+                doc.LoadHtml(await response.Content.ReadAsStringAsync());
+
+                var user = new Profile
+                {
+                    UserId = userId
+                };
+
+                // Username
+                var usernameElem = doc.DocumentNode.SelectSingleNode("//span[@class='member_username']");
+                if (usernameElem == default)
+                {
+                    return;
+                }
+
+                user.Username = usernameElem.InnerText.Trim();
+
+                // Usertitle
+                var usertitleElem = doc.DocumentNode.SelectSingleNode("//span[@class='usertitle']");
+                if (usernameElem != default)
+                {
+                    user.Usertitle = usertitleElem.InnerText.Trim();
+                }
+
+                // Rep
+                var repElem = doc.DocumentNode.SelectSingleNode("//div[@class='reputation']");
+                if (repElem != default)
+                {
+                    var matches = Regex.Match(repElem.InnerText, "Reputation: (\\d+(,\\d+)*)");
+                    if (matches.Success)
+                    {
+                        if (int.TryParse(matches.Groups[1].ToString(), NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out int reputation))
+                        {
+                            user.Reputation = reputation;
+                        }
+                    }
+                }
+
+                // Join date
+                var usermenu = doc.DocumentNode.SelectNodes("//ul[@id='usermenu']//li");
+                if (usermenu != default)
+                {
+                    var joinDateItem = usermenu.Last();
+                    var joinDateDirty = joinDateItem.InnerText.Trim(Environment.NewLine.ToCharArray()).Trim();
+                    var joinDate = joinDateDirty[7..].Trim();
+                    if (DateTime.TryParseExact(joinDate, "dd/MM/yy", CultureInfo.InvariantCulture, DateTimeStyles.AssumeUniversal, out var joinDateTime))
+                    {
+                        user.JoinDate = joinDateTime;
+                    }
+                }
+
+                savedUsers.Add(user);
+
+                if (savedUsers.Count % 100 == 0)
+                {
+                    Console.WriteLine("Saving users file.");
+                    File.WriteAllText("users.json", JsonConvert.SerializeObject(savedUsers));
+                }
             }
             else if (response.StatusCode == HttpStatusCode.NotFound)
             {
                 Console.WriteLine($"{userId} not found");
             }
-            else if (response.StatusCode == HttpStatusCode.BadGateway)
+        }
+
+        static async Task<HttpResponseMessage> Get(string endpoint, int tries = 0, bool triggeredLongWait = false)
+        {
+            if (tries == 5)
+            {
+                Console.WriteLine("We got stuck quite a few times. Doing a long wait...");
+                System.Threading.Thread.Sleep(TimeSpan.FromMinutes(5));
+                return await Get(endpoint, tries++, true);
+            }
+
+            var response = await client.GetAsync(endpoint);
+            if (response.StatusCode == HttpStatusCode.BadGateway)
             {
                 if (triggeredLongWait)
                 {
@@ -628,7 +648,11 @@ namespace NextGenUpdateArchiver
                 // Banned. Let's wait.
                 Console.WriteLine("Banned. Waiting 5 seconds...");
                 System.Threading.Thread.Sleep(TimeSpan.FromSeconds(5));
-                await ExtractUser(userId, tries++);
+                return await Get(endpoint, tries++);
+            }
+            else
+            {
+                return response;
             }
         }
     }

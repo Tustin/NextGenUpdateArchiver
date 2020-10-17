@@ -2,7 +2,7 @@
   "profiles": {
     "NextGenUpdateArchiver": {
       "commandName": "Project",
-      "commandLineArgs": "threads"
+      "commandLineArgs": "users"
     }
   }
 }
