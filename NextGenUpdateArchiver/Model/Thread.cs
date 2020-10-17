@@ -8,6 +8,7 @@ namespace NextGenUpdateArchiver.Model
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        public string Slug { get; set; }
         public List<Post> Posts { get; set; } = new List<Post>();
         public Profile Poster { get; set; }
         public DateTime StartDate { get; set; }
