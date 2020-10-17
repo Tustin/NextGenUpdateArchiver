@@ -118,9 +118,15 @@ namespace NextGenUpdateArchiver
                 }
             }
 
+            Console.WriteLine($"Scraping {forums.Count} forums...");
+
             foreach (var forum in forums)
             {
-                await ParseThreadListing(forum);
+                var flattened = FlattenForums(forum);
+                foreach (var f in flattened)
+                {
+                    await ParseThreadListing(f);
+                }
             }
 
             // Now that we have all the forums, we can now dump the threads.
@@ -129,6 +135,23 @@ namespace NextGenUpdateArchiver
 
             //// Set the threads ids.
             //forum.ThreadsIds = (await ParseThreadListing(forum, threadsElem)).Select(a => a.Id).ToList();
+        }
+
+        public static IEnumerable<Forum> FlattenForums(Forum forum)
+        {
+            if (forum == null)
+            {
+                yield break;
+            }
+            
+            yield return forum;
+            foreach (var f in forum.SubForums)
+            {
+                foreach (var subforum in FlattenForums(f))
+                {
+                    yield return subforum;
+                }
+            }
         }
 
         static async Task ParseThreadListing(Forum forum)
@@ -149,6 +172,12 @@ namespace NextGenUpdateArchiver
                 doc.LoadHtml(await response.Content.ReadAsStringAsync());
 
                 var threadsElem = doc.DocumentNode.SelectNodes("//div[starts-with(@id, 'threadbit')]");
+
+                if (threadsElem == default)
+                {
+                    Console.WriteLine($"No threads in forum '{forum.Name}");
+                    continue;
+                }
 
                 Console.WriteLine($"Getting threads in forum '{forum.Name}' (page {page}/{forum.PageCount})");
 
@@ -259,7 +288,6 @@ namespace NextGenUpdateArchiver
                     if (paginator == default)
                     {
                         // No paginator so there's only 1 page.
-                        Console.WriteLine($"Only 1 page detected for '{thread.Id}'");
                         thread.PageCount = 1;
                     }
                     else

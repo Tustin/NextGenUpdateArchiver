@@ -1,0 +1,1226 @@
+[
+  {
+    "Id": 1225,
+    "Name": "Call of Duty: Black Ops 4",
+    "Slug": "/forums/call-duty-black-ops-4",
+    "PageCount": 5,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 1228,
+        "Name": "Black Ops 4 (BO4) Glitches",
+        "Slug": "/forums/black-ops-4-glitches",
+        "PageCount": 10,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1229,
+        "Name": "Black Ops 4 (BO4) Boosting",
+        "Slug": "/forums/black-ops-4-boosting",
+        "PageCount": 2,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 1232,
+    "Name": "Call of Duty: Modern Warfare",
+    "Slug": "/forums/call-duty-modern-warfare",
+    "PageCount": 5,
+    "IsCategory": false,
+    "SubForums": [],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 792,
+    "Name": "Call of Duty Series",
+    "Slug": "/forums/call-duty-series",
+    "PageCount": 20,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 1195,
+        "Name": "Call of Duty: World War 2",
+        "Slug": "/forums/call-duty-world-war-2",
+        "PageCount": 5,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1217,
+            "Name": "COD WW2 Questions &amp; Support",
+            "Slug": "/forums/cod-ww2-questions-amp-support",
+            "PageCount": 1,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1206,
+            "Name": "COD WW2 Glitches",
+            "Slug": "/forums/cod-ww2-glitches",
+            "PageCount": 20,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1215,
+            "Name": "COD WW2 Boosting &amp; Party Up",
+            "Slug": "/forums/cod-ww2-boosting-amp-party-up",
+            "PageCount": 9,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1216,
+            "Name": "COD WW2 Services",
+            "Slug": "/forums/cod-ww2-services",
+            "PageCount": 1,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1072,
+        "Name": "Call of Duty: Black Ops 3",
+        "Slug": "/forums/call-duty-black-ops-3",
+        "PageCount": 61,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1111,
+            "Name": "Black Ops 3 Glitches",
+            "Slug": "/forums/black-ops-3-glitches",
+            "PageCount": 77,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1115,
+            "Name": "Black Ops 3 Zombie Chronicles",
+            "Slug": "/forums/black-ops-3-zombie-chronicles",
+            "PageCount": 13,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1180,
+            "Name": "Black Ops 3 PC Mods",
+            "Slug": "/forums/black-ops-3-pc-mods",
+            "PageCount": 1,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1094,
+            "Name": "Black Ops 3 Mods and Cheats",
+            "Slug": "/forums/black-ops-3-mods-cheats",
+            "PageCount": 12,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1108,
+                "Name": "Black Ops 3 Modding Tools",
+                "Slug": "/forums/black-ops-3-modding-tools",
+                "PageCount": 5,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              },
+              {
+                "Id": 1104,
+                "Name": "Black Ops 3 Modding Questions",
+                "Slug": "/forums/black-ops-3-modding-questions",
+                "PageCount": 2,
+                "IsCategory": true,
+                "SubForums": [
+                  {
+                    "Id": 1109,
+                    "Name": "Black Ops 3 Answered Modding Questions",
+                    "Slug": "/forums/black-ops-3-answered-modding-questions",
+                    "PageCount": 52,
+                    "IsCategory": false,
+                    "SubForums": [],
+                    "ThreadsIds": []
+                  }
+                ],
+                "ThreadsIds": []
+              },
+              {
+                "Id": 1110,
+                "Name": "Black Ops 3 Requests",
+                "Slug": "/forums/black-ops-3-requests",
+                "PageCount": 41,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1114,
+            "Name": "Black Ops 3 Boosting &amp; Party Up",
+            "Slug": "/forums/black-ops-3-boosting-amp-party-up",
+            "PageCount": 43,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1119,
+            "Name": "Black Ops 3 Services",
+            "Slug": "/forums/black-ops-3-services",
+            "PageCount": 1,
+            "IsCategory": true,
+            "SubForums": [
+              null,
+              {
+                "Id": 1122,
+                "Name": "Black Ops 3 Free Services",
+                "Slug": "/forums/black-ops-3-free-services",
+                "PageCount": 8,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1156,
+        "Name": "Call of Duty: Infinite Warfare",
+        "Slug": "/forums/call-duty-infinite-warfare",
+        "PageCount": 10,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1182,
+            "Name": "Infinite Warfare Zombies",
+            "Slug": "/forums/infinite-warfare-zombies",
+            "PageCount": 2,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1162,
+            "Name": "Infinite Warfare Glitches",
+            "Slug": "/forums/infinite-warfare-glitches",
+            "PageCount": 12,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1181,
+            "Name": "Infinite Warfare Boosting",
+            "Slug": "/forums/infinite-warfare-boosting",
+            "PageCount": 7,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1183,
+            "Name": "Infinite Warfare Videos",
+            "Slug": "/forums/infinite-warfare-videos",
+            "PageCount": 2,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 998,
+        "Name": "Call of Duty: Advanced Warfare",
+        "Slug": "/forums/call-duty-advanced-warfare",
+        "PageCount": 21,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1039,
+            "Name": "Advanced Warfare Modding",
+            "Slug": "/forums/advanced-warfare-modding",
+            "PageCount": 19,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1040,
+                "Name": "Advanced Warfare Modding Tools",
+                "Slug": "/forums/advanced-warfare-modding-tools",
+                "PageCount": 13,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              },
+              {
+                "Id": 1041,
+                "Name": "Advanced Warfare Modding Questions",
+                "Slug": "/forums/advanced-warfare-modding-questions",
+                "PageCount": 89,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              },
+              {
+                "Id": 1046,
+                "Name": "Advanced Warfare Requests",
+                "Slug": "/forums/advanced-warfare-requests",
+                "PageCount": 22,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1047,
+            "Name": "Advanced Warfare Glitches",
+            "Slug": "/forums/advanced-warfare-glitches",
+            "PageCount": 28,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1059,
+            "Name": "Advanced Warfare Questions",
+            "Slug": "/forums/advanced-warfare-questions",
+            "PageCount": 9,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1204,
+            "Name": "Advanced Warfare Lobbies and Services",
+            "Slug": "/forums/advanced-warfare-lobbies-services",
+            "PageCount": 1,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1205,
+                "Name": "Advanced Warfare Free Lobbies and Services",
+                "Slug": "/forums/advanced-warfare-free-lobbies-services",
+                "PageCount": 1,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 782,
+        "Name": "Call of Duty: Ghosts",
+        "Slug": "/forums/call-duty-ghosts",
+        "PageCount": 53,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 803,
+            "Name": "Ghosts Mods, Cheats, and Glitches",
+            "Slug": "/forums/ghosts-mods-cheats-glitches",
+            "PageCount": 49,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1026,
+                "Name": "Ghosts Requests",
+                "Slug": "/forums/ghosts-requests",
+                "PageCount": 17,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              },
+              {
+                "Id": 942,
+                "Name": "Ghosts Glitches and Tricks",
+                "Slug": "/forums/ghosts-glitches-tricks",
+                "PageCount": 7,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              },
+              {
+                "Id": 945,
+                "Name": "Ghosts Modding Questions",
+                "Slug": "/forums/ghosts-modding-questions",
+                "PageCount": 91,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              },
+              {
+                "Id": 952,
+                "Name": "Ghosts Modding Tools",
+                "Slug": "/forums/ghosts-modding-tools",
+                "PageCount": 36,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 941,
+            "Name": "Ghosts Questions and Inquiries",
+            "Slug": "/forums/ghosts-questions-inquiries",
+            "PageCount": 44,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 938,
+            "Name": "Ghosts Lobbies and Services",
+            "Slug": "/forums/ghosts-lobbies-services",
+            "PageCount": 6,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1025,
+                "Name": "Ghosts Free Lobbies and Services",
+                "Slug": "/forums/ghosts-free-lobbies-services",
+                "PageCount": 8,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 630,
+        "Name": "Call of Duty: Black Ops 2",
+        "Slug": "/forums/call-duty-black-ops-2",
+        "PageCount": 247,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 711,
+            "Name": "Black Ops 2 Mods, Cheats and Guides",
+            "Slug": "/forums/black-ops-2-mods-cheats-guides",
+            "PageCount": 89,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 815,
+                "Name": "Black Ops 2 Modding Tools",
+                "Slug": "/forums/black-ops-2-modding-tools",
+                "PageCount": 57,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              },
+              {
+                "Id": 1017,
+                "Name": "Black Ops 2 GSC Mods and Scripts",
+                "Slug": "/forums/black-ops-2-gsc-mods-scripts",
+                "PageCount": 62,
+                "IsCategory": true,
+                "SubForums": [
+                  {
+                    "Id": 1018,
+                    "Name": "Black Ops 2 GSC Mods and Scripts Questions",
+                    "Slug": "/forums/black-ops-2-gsc-mods-scripts-questions",
+                    "PageCount": 177,
+                    "IsCategory": true,
+                    "SubForums": [
+                      {
+                        "Id": 1136,
+                        "Name": "Black Ops 2 Answered GSC Mods and Scripts Questions",
+                        "Slug": "/forums/black-ops-2-answered-gsc-mods-scripts-questions",
+                        "PageCount": 18,
+                        "IsCategory": false,
+                        "SubForums": [],
+                        "ThreadsIds": []
+                      }
+                    ],
+                    "ThreadsIds": []
+                  }
+                ],
+                "ThreadsIds": []
+              },
+              {
+                "Id": 712,
+                "Name": "Black Ops 2 Mods Questions",
+                "Slug": "/forums/black-ops-2-mods-questions",
+                "PageCount": 362,
+                "IsCategory": true,
+                "SubForums": [
+                  {
+                    "Id": 1135,
+                    "Name": "Black Ops 2 Answered Mods Questions",
+                    "Slug": "/forums/black-ops-2-answered-mods-questions",
+                    "PageCount": 34,
+                    "IsCategory": false,
+                    "SubForums": [],
+                    "ThreadsIds": []
+                  }
+                ],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 715,
+            "Name": "Black Ops 2 Zombies",
+            "Slug": "/forums/black-ops-2-zombies",
+            "PageCount": 146,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1085,
+            "Name": "Black Ops 2 Questions",
+            "Slug": "/forums/black-ops-2-questions",
+            "PageCount": 2,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1134,
+                "Name": "Black Ops 2 Answered Questions",
+                "Slug": "/forums/black-ops-2-answered-questions",
+                "PageCount": 9,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 720,
+            "Name": "Black Ops 2 Lobbies and Services",
+            "Slug": "/forums/black-ops-2-lobbies-services",
+            "PageCount": 3,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1021,
+                "Name": "Black Ops 2 Free Lobbies and Services",
+                "Slug": "/forums/black-ops-2-free-lobbies-services",
+                "PageCount": 59,
+                "IsCategory": true,
+                "SubForums": [
+                  {
+                    "Id": 1023,
+                    "Name": "Black Ops 2 Requests",
+                    "Slug": "/forums/black-ops-2-requests",
+                    "PageCount": 73,
+                    "IsCategory": false,
+                    "SubForums": [],
+                    "ThreadsIds": []
+                  }
+                ],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 520,
+        "Name": "Call of Duty: Modern Warfare 3",
+        "Slug": "/forums/call-duty-modern-warfare-3",
+        "PageCount": 1211,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 747,
+            "Name": "Modern Warfare 3 Mods, Patches and Tutorials",
+            "Slug": "/forums/modern-warfare-3-mods-patches-tutorials",
+            "PageCount": 36,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 816,
+                "Name": "Modern Warfare 3 Modding Tools",
+                "Slug": "/forums/modern-warfare-3-modding-tools",
+                "PageCount": 30,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              },
+              {
+                "Id": 727,
+                "Name": "Modern Warfare 3 Questions and Inquiries",
+                "Slug": "/forums/modern-warfare-3-questions-inquiries",
+                "PageCount": 151,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 739,
+            "Name": "Modern Warfare 3 Lobbies and Services",
+            "Slug": "/forums/modern-warfare-3-lobbies-services",
+            "PageCount": 3,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1027,
+                "Name": "Modern Warfare 3 Free Lobbies and Services",
+                "Slug": "/forums/modern-warfare-3-free-lobbies-services",
+                "PageCount": 20,
+                "IsCategory": true,
+                "SubForums": [
+                  {
+                    "Id": 1028,
+                    "Name": "Modern Warfare 3 Requests",
+                    "Slug": "/forums/modern-warfare-3-requests",
+                    "PageCount": 20,
+                    "IsCategory": false,
+                    "SubForums": [],
+                    "ThreadsIds": []
+                  }
+                ],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 542,
+        "Name": "Call of Duty: Black Ops",
+        "Slug": "/forums/call-duty-black-ops",
+        "PageCount": 1477,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 748,
+            "Name": "Black Ops Mods, Patches and Tutorials",
+            "Slug": "/forums/black-ops-mods-patches-tutorials",
+            "PageCount": 32,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 749,
+                "Name": "Black Ops Save Games",
+                "Slug": "/forums/black-ops-save-games",
+                "PageCount": 6,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              },
+              {
+                "Id": 728,
+                "Name": "Black Ops Questions and Inquiries",
+                "Slug": "/forums/black-ops-questions-inquiries",
+                "PageCount": 88,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 741,
+            "Name": "Black Ops Lobbies and Services",
+            "Slug": "/forums/black-ops-lobbies-services",
+            "PageCount": 2,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1029,
+                "Name": "Black Ops Free Lobbies and Services",
+                "Slug": "/forums/black-ops-free-lobbies-services",
+                "PageCount": 25,
+                "IsCategory": true,
+                "SubForums": [
+                  {
+                    "Id": 1030,
+                    "Name": "Black Ops Requests",
+                    "Slug": "/forums/black-ops-requests",
+                    "PageCount": 19,
+                    "IsCategory": false,
+                    "SubForums": [],
+                    "ThreadsIds": []
+                  }
+                ],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 156,
+        "Name": "Call of Duty: Modern Warfare 2",
+        "Slug": "/forums/call-duty-modern-warfare-2",
+        "PageCount": 2597,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 745,
+            "Name": "Modern Warfare 2 Mods, Patches and Tutorials",
+            "Slug": "/forums/modern-warfare-2-mods-patches-tutorials",
+            "PageCount": 89,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 746,
+                "Name": "Modern Warfare 2 CFG USB Mods",
+                "Slug": "/forums/modern-warfare-2-cfg-usb-mods",
+                "PageCount": 37,
+                "IsCategory": true,
+                "SubForums": [
+                  {
+                    "Id": 1019,
+                    "Name": "Modern Warfare 2 CFG USB Mods Questions",
+                    "Slug": "/forums/modern-warfare-2-cfg-usb-mods-questions",
+                    "PageCount": 26,
+                    "IsCategory": false,
+                    "SubForums": [],
+                    "ThreadsIds": []
+                  }
+                ],
+                "ThreadsIds": []
+              },
+              {
+                "Id": 729,
+                "Name": "Modern Warfare 2 Questions and Inquiries",
+                "Slug": "/forums/modern-warfare-2-questions-inquiries",
+                "PageCount": 125,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 740,
+            "Name": "Modern Warfare 2 Lobbies and Services",
+            "Slug": "/forums/modern-warfare-2-lobbies-services",
+            "PageCount": 2,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1031,
+                "Name": "Modern Warfare 2 Free Services",
+                "Slug": "/forums/modern-warfare-2-free-services",
+                "PageCount": 47,
+                "IsCategory": true,
+                "SubForums": [
+                  {
+                    "Id": 1032,
+                    "Name": "Modern Warfare 2 Requests",
+                    "Slug": "/forums/modern-warfare-2-requests",
+                    "PageCount": 15,
+                    "IsCategory": false,
+                    "SubForums": [],
+                    "ThreadsIds": []
+                  }
+                ],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 100,
+        "Name": "Call of Duty: World at War",
+        "Slug": "/forums/call-duty-world-at-war",
+        "PageCount": 849,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 752,
+            "Name": "World at War Mods, Patches and Tutorials",
+            "Slug": "/forums/world-at-war-mods-patches-tutorials",
+            "PageCount": 71,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 997,
+                "Name": "World at War Modding Questions and Support",
+                "Slug": "/forums/world-at-war-modding-questions-support",
+                "PageCount": 28,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 743,
+            "Name": "World at War Lobbies and Services",
+            "Slug": "/forums/world-at-war-lobbies-services",
+            "PageCount": 1,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1033,
+                "Name": "World at War Free Services",
+                "Slug": "/forums/world-at-war-free-services",
+                "PageCount": 19,
+                "IsCategory": true,
+                "SubForums": [
+                  {
+                    "Id": 1034,
+                    "Name": "World at War Requests",
+                    "Slug": "/forums/world-at-war-requests",
+                    "PageCount": 6,
+                    "IsCategory": false,
+                    "SubForums": [],
+                    "ThreadsIds": []
+                  }
+                ],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 21,
+        "Name": "Call of Duty 4: Modern Warfare",
+        "Slug": "/forums/call-duty-4-modern-warfare",
+        "PageCount": 1045,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1168,
+            "Name": "Modern Warfare Remastered (COD4) Glitches",
+            "Slug": "/forums/modern-warfare-remastered-cod4-glitches",
+            "PageCount": 6,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1184,
+            "Name": "Modern Warfare Remastered (COD4) Boosting",
+            "Slug": "/forums/modern-warfare-remastered-cod4-boosting",
+            "PageCount": 29,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1192,
+            "Name": "Modern Warfare Remastered (COD4) Request",
+            "Slug": "/forums/modern-warfare-remastered-cod4-request",
+            "PageCount": 5,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 744,
+            "Name": "Modern Warfare (COD4) Lobbies and Services",
+            "Slug": "/forums/modern-warfare-cod4-lobbies-services",
+            "PageCount": 18,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 750,
+            "Name": "Modern Warfare (COD4) Mods, Patches and Tutorials",
+            "Slug": "/forums/modern-warfare-cod4-mods-patches-tutorials",
+            "PageCount": 26,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 996,
+                "Name": "Modern Warfare (COD4) Modding Questions and Support",
+                "Slug": "/forums/modern-warfare-cod4-modding-questions-support",
+                "PageCount": 16,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 795,
+    "Name": "Grand Theft Auto 5",
+    "Slug": "/forums/grand-theft-auto-5",
+    "PageCount": 152,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 818,
+        "Name": "GTA 5 Mods",
+        "Slug": "/forums/gta-5-mods",
+        "PageCount": 216,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1075,
+            "Name": "GTA 5 PC Mods",
+            "Slug": "/forums/gta-5-pc-mods",
+            "PageCount": 7,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1076,
+                "Name": "GTA 5 PC Modding Questions",
+                "Slug": "/forums/gta-5-pc-modding-questions",
+                "PageCount": 4,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              },
+              {
+                "Id": 1077,
+                "Name": "GTA 5 PC Modding Requests",
+                "Slug": "/forums/gta-5-pc-modding-requests",
+                "PageCount": 2,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 822,
+            "Name": "GTA 5 Modding Questions",
+            "Slug": "/forums/gta-5-modding-questions",
+            "PageCount": 25,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1084,
+                "Name": "GTA 5 Answered Modding Questions",
+                "Slug": "/forums/gta-5-answered-modding-questions",
+                "PageCount": 949,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              },
+              {
+                "Id": 1117,
+                "Name": "GTA 5 Multi-Language Modding Questions",
+                "Slug": "/forums/gta-5-multi-language-modding-questions",
+                "PageCount": 2,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1131,
+        "Name": "GTA 5 Videos",
+        "Slug": "/forums/gta-5-videos",
+        "PageCount": 21,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 999,
+        "Name": "GTA 5 Glitches",
+        "Slug": "/forums/gta-5-glitches",
+        "PageCount": 67,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1050,
+        "Name": "GTA 5 Questions and Support",
+        "Slug": "/forums/gta-5-questions-support",
+        "PageCount": 4,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1129,
+            "Name": "GTA 5 Answered Questions and Support",
+            "Slug": "/forums/gta-5-answered-questions-support",
+            "PageCount": 31,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 823,
+        "Name": "GTA 5 Modded Lobbies",
+        "Slug": "/forums/gta-5-modded-lobbies",
+        "PageCount": 5,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1052,
+            "Name": "GTA 5 Free Services",
+            "Slug": "/forums/gta-5-free-services",
+            "PageCount": 54,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1007,
+            "Name": "GTA 5 Service Requests",
+            "Slug": "/forums/gta-5-service-requests",
+            "PageCount": 5,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1137,
+                "Name": "GTA 5 Archived Service Requests",
+                "Slug": "/forums/gta-5-archived-service-requests",
+                "PageCount": 189,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1133,
+        "Name": "GTA 5 Party Up",
+        "Slug": "/forums/gta-5-party-up",
+        "PageCount": 10,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 902,
+    "Name": "Red Dead Redemption 2",
+    "Slug": "/forums/red-dead-redemption-2",
+    "PageCount": 2,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 1186,
+        "Name": "Red Dead Redemption 2 Glitches",
+        "Slug": "/forums/red-dead-redemption-2-glitches",
+        "PageCount": 1,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1187,
+        "Name": "Red Dead Redemption Mods &amp; Cheats",
+        "Slug": "/forums/red-dead-redemption-2-mods-amp-cheats",
+        "PageCount": 8,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 1224,
+    "Name": "Fortnite and Battle Royale",
+    "Slug": "/forums/fortnite-and-battle-royale",
+    "PageCount": 15,
+    "IsCategory": false,
+    "SubForums": [],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 701,
+    "Name": "Upcoming Games",
+    "Slug": "/forums/upcoming-games",
+    "PageCount": 20,
+    "IsCategory": false,
+    "SubForums": [],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 534,
+    "Name": "Popular &amp; Classic Games",
+    "Slug": "/forums/popular-classic-games",
+    "PageCount": 1153,
+    "IsCategory": false,
+    "SubForums": [],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 794,
+    "Name": "Sports Games",
+    "Slug": "/forums/sports-games",
+    "PageCount": 4,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 807,
+        "Name": "Madden Series",
+        "Slug": "/forums/madden-series",
+        "PageCount": 4,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 806,
+        "Name": "NBA 2k Series",
+        "Slug": "/forums/nba-2k-series",
+        "PageCount": 10,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 539,
+        "Name": "FIFA Gaming Series",
+        "Slug": "/forums/fifa-gaming-series",
+        "PageCount": 1,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1213,
+            "Name": "FIFA 18",
+            "Slug": "/forums/fifa-18",
+            "PageCount": 1,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1185,
+            "Name": "FIFA 17",
+            "Slug": "/forums/fifa-17",
+            "PageCount": 2,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1099,
+            "Name": "FIFA 16",
+            "Slug": "/forums/fifa-16",
+            "PageCount": 8,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1015,
+            "Name": "FIFA 15",
+            "Slug": "/forums/fifa-15",
+            "PageCount": 14,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1016,
+                "Name": "FIFA Trading",
+                "Slug": "/forums/fifa-trading",
+                "PageCount": 90,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 543,
+            "Name": "FIFA Cheats, Mods and Glitches",
+            "Slug": "/forums/fifa-cheats-mods-glitches",
+            "PageCount": 30,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 853,
+            "Name": "FIFA 14",
+            "Slug": "/forums/fifa-14",
+            "PageCount": 149,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 421,
+                "Name": "FIFA Trading",
+                "Slug": "/forums/fifa-trading",
+                "PageCount": 90,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 540,
+            "Name": "FIFA Ultimate Team",
+            "Slug": "/forums/fifa-ultimate-team",
+            "PageCount": 93,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  }
+]

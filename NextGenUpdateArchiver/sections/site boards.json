@@ -1,0 +1,58 @@
+[
+	{
+    "Id": 2,
+    "Name": "Site Announcements",
+    "Slug": "/forums/ngu-announcements",
+    "PageCount": 21,
+    "IsCategory": false,
+    "SubForums": [],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 953,
+    "Name": "Site Suggestions",
+    "Slug": "/forums/site-suggestions",
+    "PageCount": 1,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 1038,
+        "Name": "Closed Suggestions",
+        "Slug": "/forums/closed-suggestions",
+        "PageCount": 41,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 3,
+    "Name": "Site and Forum Help",
+    "Slug": "/forums/site-forum-help",
+    "PageCount": 5,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 154,
+        "Name": "Completed Inquiries",
+        "Slug": "/forums/completed-inquiries",
+        "PageCount": 454,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 4,
+    "Name": "Introduce Yourself to NGU",
+    "Slug": "/forums/introduce-yourself-ngu",
+    "PageCount": 694,
+    "IsCategory": false,
+    "SubForums": [],
+    "ThreadsIds": []
+  }
+]

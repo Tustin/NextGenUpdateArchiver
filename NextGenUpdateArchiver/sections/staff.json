@@ -1,0 +1,122 @@
+[
+{
+    "Id": 1231,
+    "Name": "Closed Elite Sales Threads",
+    "Slug": "/forums/closed-elite-sales-threads",
+    "PageCount": 1,
+    "IsCategory": false,
+    "SubForums": [],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 367,
+    "Name": "Supers Lounge",
+    "Slug": "/forums/supers-lounge",
+    "PageCount": 9,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 1080,
+        "Name": "Mod Stats",
+        "Slug": "/forums/mod-stats",
+        "PageCount": 1,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1150,
+        "Name": "Super Sandbox",
+        "Slug": "/forums/super-sandbox",
+        "PageCount": 2,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 1081,
+    "Name": "Staff Center",
+    "Slug": "/forums/staff-centre",
+    "PageCount": 2,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 1152,
+        "Name": "Staff Sandbox",
+        "Slug": "/forums/staff-sandbox",
+        "PageCount": 4,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 43,
+        "Name": "Staff Archives",
+        "Slug": "/forums/mod-history",
+        "PageCount": 48,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 243,
+    "Name": "News Team",
+    "Slug": "/forums/news-team",
+    "PageCount": 1,
+    "IsCategory": false,
+    "SubForums": [],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 42,
+    "Name": "Moderation Sections",
+    "Slug": "/forums/moderation-sections",
+    "PageCount": 1,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 52,
+        "Name": "AE Detector",
+        "Slug": "/forums/ae-detector",
+        "PageCount": 1,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 64,
+        "Name": "Reported Posts",
+        "Slug": "/forums/reported-posts",
+        "PageCount": 17,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 138,
+        "Name": "Infractions",
+        "Slug": "/forums/infractions",
+        "PageCount": 1,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 44,
+        "Name": "Trash",
+        "Slug": "/forums/trash",
+        "PageCount": 95,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  }
+]

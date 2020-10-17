@@ -1,0 +1,21 @@
+[
+  {
+    "Id": 668,
+    "Name": "NextGenUpdate Elite Lounge",
+    "Slug": "/forums/nextgenupdate-elite-lounge",
+    "PageCount": 1,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 681,
+        "Name": "Suggestions",
+        "Slug": "/forums/suggestions",
+        "PageCount": 8,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  }
+]

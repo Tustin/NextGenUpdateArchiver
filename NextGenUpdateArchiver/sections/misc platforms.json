@@ -1,0 +1,408 @@
+[
+  {
+    "Id": 762,
+    "Name": "PS4",
+    "Slug": "/forums/ps4",
+    "PageCount": 196,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 796,
+        "Name": "PS4 Mods and Cheats",
+        "Slug": "/forums/ps4-mods-cheats",
+        "PageCount": 36,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1209,
+            "Name": "PS4 Mods Questions and Inquiries",
+            "Slug": "/forums/ps4-mods-questions-inquiries",
+            "PageCount": 9,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1210,
+                "Name": "PS4 Mods Answered Questions",
+                "Slug": "/forums/ps4-mods-answered-questions",
+                "PageCount": 2,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 798,
+        "Name": "PS4 Questions and Support",
+        "Slug": "/forums/ps4-questions-support",
+        "PageCount": 8,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1113,
+            "Name": "Completed Questions Section",
+            "Slug": "/forums/completed-questions-section",
+            "PageCount": 70,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1222,
+        "Name": "PS4 Multi-Language Discussion",
+        "Slug": "/forums/ps4-multi-language-discussion",
+        "PageCount": 1,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 797,
+    "Name": "PS4 Trophies and Game Saves",
+    "Slug": "/forums/ps4-trophies-game-saves",
+    "PageCount": 225,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 1194,
+        "Name": "PS4 Game Save Modding",
+        "Slug": "/forums/ps4-game-save-modding",
+        "PageCount": 75,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1198,
+        "Name": "PS4 Game Save Requests",
+        "Slug": "/forums/ps4-game-save-requests",
+        "PageCount": 210,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1196,
+        "Name": "PS4 Game Save Questions",
+        "Slug": "/forums/ps4-game-save-questions",
+        "PageCount": 34,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1219,
+        "Name": "PS4 Trophy Guides",
+        "Slug": "/forums/ps4-trophy-guides",
+        "PageCount": 2,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 11,
+    "Name": "PS3",
+    "Slug": "/forums/ps3",
+    "PageCount": 1114,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 766,
+        "Name": "Multi-Language Discussion",
+        "Slug": "/forums/multi-language-discussion",
+        "PageCount": 2,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 13,
+        "Name": "PS3 Mods and Cheats",
+        "Slug": "/forums/ps3-mods-cheats",
+        "PageCount": 1025,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 725,
+            "Name": "PS3 Mods Questions and Inquiries",
+            "Slug": "/forums/ps3-mods-questions-inquiries",
+            "PageCount": 64,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1103,
+                "Name": "PS3 Mods Answered Questions",
+                "Slug": "/forums/ps3-mods-answered-questions",
+                "PageCount": 1664,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1006,
+            "Name": "PS3 Modding Requests",
+            "Slug": "/forums/ps3-modding-requests",
+            "PageCount": 83,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 263,
+        "Name": "PS3 Trophies and Game Saves",
+        "Slug": "/forums/ps3-trophies-game-saves",
+        "PageCount": 411,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1064,
+            "Name": "PS3 Gamesave Requests",
+            "Slug": "/forums/ps3-gamesave-requests",
+            "PageCount": 114,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 726,
+            "Name": "PS3 Trophies Questions and Inquiries",
+            "Slug": "/forums/ps3-trophies-questions-inquiries",
+            "PageCount": 84,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 754,
+        "Name": "PS3 Questions and Support",
+        "Slug": "/forums/ps3-questions-support",
+        "PageCount": 57,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1124,
+            "Name": "PS3 Answered Questions",
+            "Slug": "/forums/ps3-answered-questions",
+            "PageCount": 108,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 1132,
+    "Name": "Xbox Systems",
+    "Slug": "/forums/microsoft-systems",
+    "PageCount": 2,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 784,
+        "Name": "Xbox One",
+        "Slug": "/forums/xbox-one",
+        "PageCount": 34,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 799,
+            "Name": "Xbox One Achievements and Game Saves",
+            "Slug": "/forums/xbox-one-achievements-game-saves",
+            "PageCount": 1,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 800,
+            "Name": "Xbox One Questions and Support",
+            "Slug": "/forums/xbox-one-questions-support",
+            "PageCount": 7,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 801,
+            "Name": "Xbox One Mods and Cheats",
+            "Slug": "/forums/xbox-one-mods-cheats",
+            "PageCount": 3,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 15,
+        "Name": "Xbox 360",
+        "Slug": "/forums/xbox-360",
+        "PageCount": 230,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 791,
+            "Name": "Xbox 360 Achievements and JTag",
+            "Slug": "/forums/xbox-360-achievements-jtag",
+            "PageCount": 5,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 17,
+            "Name": "Xbox 360 Cheats and Customization",
+            "Slug": "/forums/xbox-360-cheats-customization",
+            "PageCount": 129,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 733,
+                "Name": "360 Mods Questions and Inquiries",
+                "Slug": "/forums/360-mods-questions-inquiries",
+                "PageCount": 28,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 755,
+            "Name": "Xbox 360 Questions and Support",
+            "Slug": "/forums/xbox-360-questions-support",
+            "PageCount": 7,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 654,
+    "Name": "PC Gaming",
+    "Slug": "/forums/pc-amp-steam-gaming",
+    "PageCount": 141,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 1230,
+        "Name": "PC Game Saves",
+        "Slug": "/forums/pc-game-saves",
+        "PageCount": 1,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 947,
+    "Name": "Miscellaneous Platforms",
+    "Slug": "/forums/miscellaneous-platforms",
+    "PageCount": 3,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 948,
+        "Name": "Nintendo Systems",
+        "Slug": "/forums/nintendo-systems",
+        "PageCount": 5,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 65,
+        "Name": "PlayStation Vita",
+        "Slug": "/forums/playstation-vita",
+        "PageCount": 83,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 140,
+        "Name": "Mobile Gaming",
+        "Slug": "/forums/mobile-gaming",
+        "PageCount": 98,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1176,
+            "Name": "Pokemon Go",
+            "Slug": "/forums/pokemon-go",
+            "PageCount": 5,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1178,
+                "Name": "Pokemon Go Botting and Cheats",
+                "Slug": "/forums/pokemon-go-botting-cheats",
+                "PageCount": 8,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              },
+              {
+                "Id": 1177,
+                "Name": "Pokemon Go Questions",
+                "Slug": "/forums/pokemon-go-questions",
+                "PageCount": 1,
+                "IsCategory": true,
+                "SubForums": [
+                  {
+                    "Id": 1179,
+                    "Name": "Pokemon Go Answered Questions",
+                    "Slug": "/forums/pokemon-go-answered-questions",
+                    "PageCount": 8,
+                    "IsCategory": false,
+                    "SubForums": [],
+                    "ThreadsIds": []
+                  }
+                ],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  }
+]

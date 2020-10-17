@@ -1,0 +1,189 @@
+[
+  {
+    "Id": 6,
+    "Name": "General Discussion",
+    "Slug": "/forums/general-discussion",
+    "PageCount": 2422,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 1073,
+        "Name": "Site Games",
+        "Slug": "/forums/site-games",
+        "PageCount": 5,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1218,
+        "Name": "Cryptocurrency",
+        "Slug": "/forums/cryptocurrency",
+        "PageCount": 1,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 482,
+    "Name": "Auctions",
+    "Slug": "/forums/auctions",
+    "PageCount": 1,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 174,
+        "Name": "General Auctions and Information",
+        "Slug": "/forums/general-auctions-information",
+        "PageCount": 931,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 284,
+            "Name": "NGU Referrals",
+            "Slug": "/forums/ngu-referrals",
+            "PageCount": 95,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 285,
+            "Name": "Disputes Section",
+            "Slug": "/forums/disputes-section",
+            "PageCount": 1,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 378,
+                "Name": "Solved Disputes",
+                "Slug": "/forums/solved-disputes",
+                "PageCount": 139,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 808,
+            "Name": "Community Alerts",
+            "Slug": "/forums/community-alerts",
+            "PageCount": 7,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 298,
+        "Name": "Accounts and Services",
+        "Slug": "/forums/accounts-services",
+        "PageCount": 410,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 296,
+            "Name": "Call of Duty",
+            "Slug": "/forums/call-duty",
+            "PageCount": 320,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 297,
+            "Name": "YouTube",
+            "Slug": "/forums/youtube",
+            "PageCount": 178,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 299,
+        "Name": "Playstation Trophies",
+        "Slug": "/forums/trophies",
+        "PageCount": 1,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 418,
+            "Name": "Legitimate Trophies",
+            "Slug": "/forums/legitimate-trophies",
+            "PageCount": 19,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 419,
+            "Name": "Modded Trophies",
+            "Slug": "/forums/modded-trophies",
+            "PageCount": 1,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 420,
+            "Name": "Trophy Requests",
+            "Slug": "/forums/trophy-requests",
+            "PageCount": 90,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 536,
+    "Name": "Media &amp; Design",
+    "Slug": "/forums/media-design",
+    "PageCount": 1043,
+    "IsCategory": false,
+    "SubForums": [],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 758,
+    "Name": "YouTube",
+    "Slug": "/forums/youtube-gaming",
+    "PageCount": 168,
+    "IsCategory": false,
+    "SubForums": [],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 1095,
+    "Name": "Gaming Giveaways and Contests",
+    "Slug": "/forums/gaming-giveaways-contests",
+    "PageCount": 1,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 1096,
+        "Name": "Completed Giveaways",
+        "Slug": "/forums/completed-giveaways",
+        "PageCount": 19,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  }
+]

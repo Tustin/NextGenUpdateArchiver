@@ -1,0 +1,150 @@
+[
+	{
+    "Id": 552,
+    "Name": "Computers",
+    "Slug": "/forums/computers",
+    "PageCount": 230,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 1044,
+        "Name": "PC Builds",
+        "Slug": "/forums/pc-builds",
+        "PageCount": 62,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 680,
+        "Name": "Computer Troubleshooting",
+        "Slug": "/forums/computer-troubleshooting",
+        "PageCount": 33,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 1221,
+    "Name": "Mobile",
+    "Slug": "/forums/mobile",
+    "PageCount": 1,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 142,
+        "Name": "Apple &amp; iOS",
+        "Slug": "/forums/apple-amp-ios",
+        "PageCount": 239,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 767,
+            "Name": "iOS Modding",
+            "Slug": "/forums/ios-modding",
+            "PageCount": 29,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 511,
+            "Name": "iOS Questions and Help",
+            "Slug": "/forums/ios-questions-help",
+            "PageCount": 48,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 774,
+        "Name": "Google &amp; Android",
+        "Slug": "/forums/google-amp-android",
+        "PageCount": 50,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 73,
+    "Name": "Computer Programming",
+    "Slug": "/forums/computer-programming",
+    "PageCount": 144,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 1145,
+        "Name": "C/C++ Programming",
+        "Slug": "/forums/cc-programming",
+        "PageCount": 10,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1146,
+        "Name": "Web Development (PHP, HTML, Javascript)",
+        "Slug": "/forums/web-development-php-html-javascript",
+        "PageCount": 7,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1147,
+        "Name": ".NET (Visual Basic, C#, ASP)",
+        "Slug": "/forums/net-visual-basic-c-asp",
+        "PageCount": 29,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1148,
+        "Name": "Mobile Development (Java, Objective-C, Swift)",
+        "Slug": "/forums/mobile-development-java-objective-c-swift",
+        "PageCount": 3,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1149,
+        "Name": "Other Languages",
+        "Slug": "/forums/other-languages",
+        "PageCount": 3,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 250,
+        "Name": "Computer Programming Inquires",
+        "Slug": "/forums/computer-programming-inquires",
+        "PageCount": 155,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 89,
+    "Name": "Internet Talk",
+    "Slug": "/forums/internet-talk",
+    "PageCount": 116,
+    "IsCategory": false,
+    "SubForums": [],
+    "ThreadsIds": []
+  }
+]
