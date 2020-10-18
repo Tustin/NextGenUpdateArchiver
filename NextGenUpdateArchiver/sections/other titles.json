@@ -1,0 +1,338 @@
+[
+  {
+    "Id": 795,
+    "Name": "Grand Theft Auto 5",
+    "Slug": "/forums/grand-theft-auto-5",
+    "PageCount": 152,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 818,
+        "Name": "GTA 5 Mods",
+        "Slug": "/forums/gta-5-mods",
+        "PageCount": 216,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1075,
+            "Name": "GTA 5 PC Mods",
+            "Slug": "/forums/gta-5-pc-mods",
+            "PageCount": 7,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1076,
+                "Name": "GTA 5 PC Modding Questions",
+                "Slug": "/forums/gta-5-pc-modding-questions",
+                "PageCount": 4,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              },
+              {
+                "Id": 1077,
+                "Name": "GTA 5 PC Modding Requests",
+                "Slug": "/forums/gta-5-pc-modding-requests",
+                "PageCount": 2,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 822,
+            "Name": "GTA 5 Modding Questions",
+            "Slug": "/forums/gta-5-modding-questions",
+            "PageCount": 25,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1084,
+                "Name": "GTA 5 Answered Modding Questions",
+                "Slug": "/forums/gta-5-answered-modding-questions",
+                "PageCount": 949,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              },
+              {
+                "Id": 1117,
+                "Name": "GTA 5 Multi-Language Modding Questions",
+                "Slug": "/forums/gta-5-multi-language-modding-questions",
+                "PageCount": 2,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1131,
+        "Name": "GTA 5 Videos",
+        "Slug": "/forums/gta-5-videos",
+        "PageCount": 21,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 999,
+        "Name": "GTA 5 Glitches",
+        "Slug": "/forums/gta-5-glitches",
+        "PageCount": 67,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1050,
+        "Name": "GTA 5 Questions and Support",
+        "Slug": "/forums/gta-5-questions-support",
+        "PageCount": 4,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1129,
+            "Name": "GTA 5 Answered Questions and Support",
+            "Slug": "/forums/gta-5-answered-questions-support",
+            "PageCount": 31,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 823,
+        "Name": "GTA 5 Modded Lobbies",
+        "Slug": "/forums/gta-5-modded-lobbies",
+        "PageCount": 5,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1052,
+            "Name": "GTA 5 Free Services",
+            "Slug": "/forums/gta-5-free-services",
+            "PageCount": 54,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1007,
+            "Name": "GTA 5 Service Requests",
+            "Slug": "/forums/gta-5-service-requests",
+            "PageCount": 5,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1137,
+                "Name": "GTA 5 Archived Service Requests",
+                "Slug": "/forums/gta-5-archived-service-requests",
+                "PageCount": 189,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1133,
+        "Name": "GTA 5 Party Up",
+        "Slug": "/forums/gta-5-party-up",
+        "PageCount": 10,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 902,
+    "Name": "Red Dead Redemption 2",
+    "Slug": "/forums/red-dead-redemption-2",
+    "PageCount": 2,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 1186,
+        "Name": "Red Dead Redemption 2 Glitches",
+        "Slug": "/forums/red-dead-redemption-2-glitches",
+        "PageCount": 1,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 1187,
+        "Name": "Red Dead Redemption Mods &amp; Cheats",
+        "Slug": "/forums/red-dead-redemption-2-mods-amp-cheats",
+        "PageCount": 8,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 1224,
+    "Name": "Fortnite and Battle Royale",
+    "Slug": "/forums/fortnite-and-battle-royale",
+    "PageCount": 15,
+    "IsCategory": false,
+    "SubForums": [],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 701,
+    "Name": "Upcoming Games",
+    "Slug": "/forums/upcoming-games",
+    "PageCount": 20,
+    "IsCategory": false,
+    "SubForums": [],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 534,
+    "Name": "Popular &amp; Classic Games",
+    "Slug": "/forums/popular-classic-games",
+    "PageCount": 1153,
+    "IsCategory": false,
+    "SubForums": [],
+    "ThreadsIds": []
+  },
+  {
+    "Id": 794,
+    "Name": "Sports Games",
+    "Slug": "/forums/sports-games",
+    "PageCount": 4,
+    "IsCategory": true,
+    "SubForums": [
+      {
+        "Id": 807,
+        "Name": "Madden Series",
+        "Slug": "/forums/madden-series",
+        "PageCount": 4,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 806,
+        "Name": "NBA 2k Series",
+        "Slug": "/forums/nba-2k-series",
+        "PageCount": 10,
+        "IsCategory": false,
+        "SubForums": [],
+        "ThreadsIds": []
+      },
+      {
+        "Id": 539,
+        "Name": "FIFA Gaming Series",
+        "Slug": "/forums/fifa-gaming-series",
+        "PageCount": 1,
+        "IsCategory": true,
+        "SubForums": [
+          {
+            "Id": 1213,
+            "Name": "FIFA 18",
+            "Slug": "/forums/fifa-18",
+            "PageCount": 1,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1185,
+            "Name": "FIFA 17",
+            "Slug": "/forums/fifa-17",
+            "PageCount": 2,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1099,
+            "Name": "FIFA 16",
+            "Slug": "/forums/fifa-16",
+            "PageCount": 8,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 1015,
+            "Name": "FIFA 15",
+            "Slug": "/forums/fifa-15",
+            "PageCount": 14,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 1016,
+                "Name": "FIFA Trading",
+                "Slug": "/forums/fifa-trading",
+                "PageCount": 90,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 543,
+            "Name": "FIFA Cheats, Mods and Glitches",
+            "Slug": "/forums/fifa-cheats-mods-glitches",
+            "PageCount": 30,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 853,
+            "Name": "FIFA 14",
+            "Slug": "/forums/fifa-14",
+            "PageCount": 149,
+            "IsCategory": true,
+            "SubForums": [
+              {
+                "Id": 421,
+                "Name": "FIFA Trading",
+                "Slug": "/forums/fifa-trading",
+                "PageCount": 90,
+                "IsCategory": false,
+                "SubForums": [],
+                "ThreadsIds": []
+              }
+            ],
+            "ThreadsIds": []
+          },
+          {
+            "Id": 540,
+            "Name": "FIFA Ultimate Team",
+            "Slug": "/forums/fifa-ultimate-team",
+            "PageCount": 93,
+            "IsCategory": false,
+            "SubForums": [],
+            "ThreadsIds": []
+          }
+        ],
+        "ThreadsIds": []
+      }
+    ],
+    "ThreadsIds": []
+  }
+]
