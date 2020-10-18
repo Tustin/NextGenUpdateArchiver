@@ -293,6 +293,7 @@ namespace NextGenUpdateArchiver
                     if (threadDocument == null)
                     {
                         Console.WriteLine("Unable to fetch thread document.");
+                        continue;
                     }
 
                     var paginator = threadDocument.DocumentNode.SelectSingleNode("//ul[@class='pagination']");
