@@ -11,5 +11,7 @@ namespace NextGenUpdateArchiver.Model
         public string Contents { get; set; }
         public List<string> Thanks { get; set; } = new List<string>();
         public DateTime PostDate { get; set; }
+        public bool NeedsThanked { get; set; } = false;
+        public bool HasBeenThanked { get; set; } = false;
     }
 }

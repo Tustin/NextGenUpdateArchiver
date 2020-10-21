@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Net;
 using System.Net.Http;
 using System.Reflection.Metadata.Ecma335;
@@ -154,7 +155,7 @@ namespace NextGenUpdateArchiver
             {
                 yield break;
             }
-            
+
             yield return forum;
             foreach (var f in forum.SubForums)
             {
@@ -186,7 +187,7 @@ namespace NextGenUpdateArchiver
 
                 if (threadsElem == default)
                 {
-                    Console.WriteLine($"No threads in forum '{forum.Name}");
+                    Console.WriteLine($"No threads in forum '{forum.Name}'");
                     continue;
                 }
 
@@ -307,7 +308,7 @@ namespace NextGenUpdateArchiver
                         try
                         {
                             var pages = paginator.SelectNodes(".//li");
-                            var lastPage = pages[pages.Count - 2];
+                            var lastPage = pages[^2];
 
                             var lastPageParsed = int.Parse(lastPage.InnerText.Trim(Environment.NewLine.ToCharArray()));
 
@@ -339,6 +340,30 @@ namespace NextGenUpdateArchiver
             } while (page++ < forum.PageCount);
         }
 
+        static int GetPostId(HtmlNode p)
+        {
+            var pid = p.Attributes["id"].Value;
+
+            if (Regex.IsMatch(pid, "^post_\\d*$"))
+            {
+                try
+                {
+                    if (!int.TryParse(pid[("post_".Length)..], out var pidOnly))
+                    {
+                        throw new Exception($"Unable to parse post id integer from {pid}");
+                    }
+
+                    return pidOnly;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"Unable to parse post id {pid}", ex);
+                }
+            }
+
+            return 0;
+        }
+
         static async Task ParsePosts(Forum forum, NGUThread thread)
         {
             int page = 1;
@@ -364,129 +389,174 @@ namespace NextGenUpdateArchiver
 
                     foreach (var p in posts)
                     {
-                        var pid = p.Attributes["id"].Value;
-                        var post = new Post();
-
-                        // Get post ID.
-                        if (Regex.IsMatch(pid, "^post_\\d*$"))
+                        try
                         {
-                            try
-                            {
-                                if (!int.TryParse(pid[("post_".Length)..], out var pidOnly))
-                                {
-                                    Console.WriteLine($"[warn] Unable to parse post id integer from {pid}");
-                                    continue;
-                                }
+                            var postId = GetPostId(p);
 
-                                post.Id = pidOnly;
+                            if (postId == 0)
+                            {
+                                continue;
                             }
-                            catch (Exception ex)
+
+                            if (thread.Posts.Any(a => a.Id == postId))
                             {
-                                throw new Exception($"Unable to parse post id {pid}", ex);
+                                // We already have this post saved (maybe from a previous cache or because it's the first post on the thread). Skip it.
+                                continue;
                             }
-                        }
-                        else
-                        {
-                            // Not a match, silently continue.
-                            continue;
-                        }
 
-                        if (thread.Posts.Any(a => a.Id == post.Id))
-                        {
-                            // We already have this post saved (maybe from a previous cache or because it's the first post on the thread). Skip it.
-                            continue;
-                        }
-
-                        // Get poster name.
-                        var usernameBlock = p.SelectSingleNode(".//div[@id='usernameblock']");
-                        if (usernameBlock == default)
-                        {
-                            Console.WriteLine($"[warn] No username block found for {post.Id}");
-                        }
-                        else
-                        {
-                            post.Username = usernameBlock.InnerText.Trim();
-                            var linkElem = usernameBlock.ParentNode;
-                            var link = linkElem.Attributes["href"].Value;
-                            if (link != "#")
+                            // If the post needs thanked before we dump it, do that now.
+                            if (PostNeedsThanked(p))
                             {
-                                // Not deleted.
-                                var matches = Regex.Match(link, "/forums/members/(\\d*)");
-                                if (matches.Success)
+                                Console.WriteLine("\t\t - Has hidden contents. Thanking post...");
+                                var csrfElem = p.SelectSingleNode(".//input[@name='_token']");
+
+                                if (csrfElem != default)
                                 {
-                                    var userIdGroup = matches.Groups[1].Value;
-                                    if (int.TryParse(userIdGroup, out int userId))
+                                    var csrf = csrfElem.Attributes["value"].Value;
+                                    var formContent = new FormUrlEncodedContent(new[]
                                     {
-                                        post.UserId = userId;
-                                    }
-                                }
-                            }
-                        }
+                                    new KeyValuePair<string, string>("_token", csrf),
+                                });
 
-                        // Get post date.
-                        var panelHeading = p.SelectSingleNode(".//div[@class='panel-heading']");
-                        if (panelHeading == default)
-                        {
-                            Console.WriteLine($"[warn] No panel heading found for {post.Id}");
-                        }
-                        else
-                        {
-                            var postDateElem = panelHeading.SelectSingleNode(".//span");
-                            // Dumbass hack here because for some reason agility pack likes to return any nested elements in InnerText lol
-                            var headingElems = panelHeading.SelectNodes(".//span");
-                            if (headingElems == null || headingElems.Count < 2)
-                            {
-                                Console.Write("[warn] Unable to find span elem for post date.");
-                            }
-                            else
-                            {
-                                var actualDateElem = headingElems[0].InnerText;
-                                var garbage = headingElems[1].InnerText;
-                                var dateDirty = actualDateElem.Replace(garbage, string.Empty);
-                                var cleaned = dateDirty.Trim(Environment.NewLine.ToCharArray()).Trim();
-                                if (DateTime.TryParse(cleaned, out var postDate))
-                                {
-                                    post.PostDate = postDate;
+                                    var thankResponse = await Post($"{forum.Slug}/{postId}/thank", formContent);
+                                    if (thankResponse.StatusCode == HttpStatusCode.OK)
+                                    {
+                                        await ParsePosts(forum, thread);
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine($"\t\t[err] Failed thanking post {postId}. Continuing without thanking it...");
+                                    }
                                 }
                                 else
                                 {
-                                    Console.Write($"[warn] Unable to parse post date '{cleaned}' to DateTime.");
+                                    Console.WriteLine($"\t\t[err] Post {postId} needs thanked but couldn't find CSRF token.");
                                 }
                             }
-                        }
 
-                        // Post contents (HTML for now...)
-                        var postContentElem = p.SelectSingleNode(".//div[@class='postcontent']");
-                        if (postContentElem == default)
-                        {
-                            Console.WriteLine($"[warn] No post content found for post {post.Id}");
-                        }
-                        else
-                        {
-                            post.Contents = postContentElem.InnerHtml;
-                        }
-
-                        // Try to get thanks.
-                        var thanksBoxElem = threadDocument.DocumentNode.SelectSingleNode($"//li[@id='post_thanks_box_{post.Id}']");
-                        if (thanksBoxElem != default)
-                        {
-                            var thanksBoxListElem = thanksBoxElem.SelectSingleNode(".//div[@id='nguheader']");
-                            if (thanksBoxListElem != default)
+                            var post = new Post()
                             {
-                                var thanksList = thanksBoxListElem.SelectNodes(".//a");
-                                if (thanksList != default && thanksList.Count > 0)
+                                Id = postId
+                            };
+
+                            // Post contents (HTML for now...)
+                            var postContentElem = p.SelectSingleNode(".//div[@class='postcontent']");
+                            if (postContentElem == default)
+                            {
+                                throw new Exception("No post content found for post");
+                            }
+
+                            // Get poster name.
+                            var usernameBlock = p.SelectSingleNode(".//div[@id='usernameblock']");
+                            if (usernameBlock == default)
+                            {
+                                Console.WriteLine($"[warn] No username block found for {post.Id}");
+                            }
+                            else
+                            {
+                                post.Username = usernameBlock.InnerText.Trim();
+                                var linkElem = usernameBlock.ParentNode;
+                                var link = linkElem.Attributes["href"].Value;
+                                if (link != "#")
                                 {
-                                    post.Thanks.AddRange(
-                                        thanksList.Select(a => a.InnerText.Trim())
-                                        );
+                                    // Not deleted.
+                                    var matches = Regex.Match(link, "/forums/members/(\\d*)");
+                                    if (matches.Success)
+                                    {
+                                        var userIdGroup = matches.Groups[1].Value;
+                                        if (int.TryParse(userIdGroup, out int userId))
+                                        {
+                                            post.UserId = userId;
+                                        }
+                                    }
                                 }
                             }
-                        }
 
-                        thread.Posts.Add(post);
+                            // Get post date.
+                            var panelHeading = p.SelectSingleNode(".//div[@class='panel-heading']");
+                            if (panelHeading == default)
+                            {
+                                Console.WriteLine($"[warn] No panel heading found for {post.Id}");
+                            }
+                            else
+                            {
+                                var postDateElem = panelHeading.SelectSingleNode(".//span");
+                                // Dumbass hack here because for some reason agility pack likes to return any nested elements in InnerText lol
+                                var headingElems = panelHeading.SelectNodes(".//span");
+                                if (headingElems == null || headingElems.Count < 2)
+                                {
+                                    Console.Write("[warn] Unable to find span elem for post date.");
+                                }
+                                else
+                                {
+                                    var actualDateElem = headingElems[0].InnerText;
+                                    var garbage = headingElems[1].InnerText;
+                                    var dateDirty = actualDateElem.Replace(garbage, string.Empty);
+                                    var cleaned = dateDirty.Trim(Environment.NewLine.ToCharArray()).Trim();
+                                    if (DateTime.TryParse(cleaned, out var postDate))
+                                    {
+                                        post.PostDate = postDate;
+                                    }
+                                    else
+                                    {
+                                        Console.Write($"[warn] Unable to parse post date '{cleaned}' to DateTime.");
+                                    }
+                                }
+                            }
+
+                            // Try to get thanks.
+                            var thanksBoxElem = threadDocument.DocumentNode.SelectSingleNode($"//li[@id='post_thanks_box_{post.Id}']");
+                            if (thanksBoxElem != default)
+                            {
+                                var thanksBoxListElem = thanksBoxElem.SelectSingleNode(".//div[@id='nguheader']");
+                                if (thanksBoxListElem != default)
+                                {
+                                    var thanksList = thanksBoxListElem.SelectNodes(".//a");
+                                    if (thanksList != default && thanksList.Count > 0)
+                                    {
+                                        post.Thanks.AddRange(
+                                            thanksList.Select(a => a.InnerText.Trim())
+                                            );
+                                    }
+                                }
+                            }
+
+                            thread.Posts.Add(post);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"[err] Failed parsing post: {ex.Message}");
+                        }
                     }
                 }
             } while (page++ < thread.PageCount);
+        }
+
+        private static bool PostNeedsThanked(HtmlNode p)
+        {
+            var postContentElem = p.SelectSingleNode(".//div[@class='postcontent']");
+            if (postContentElem == default)
+            {
+                throw new Exception("No post content found for post");
+            }
+            else
+            {
+                var needsThanked = postContentElem.SelectSingleNode(".//span[@class='label label-primary']");
+
+                // Holy shit Beach is so dumb that any quoted post that has hidden content will ALWAYS be hidden even if the original post was thanked...
+                // Beach if you ever read this you are truly retarded.
+                if (needsThanked != default)
+                {
+                    // We only want to try to thank the post if it does not contain a quote...
+                    // Probably a few small false positives but it's the the risk to bypass Beach's stupidity.
+                    var quoteNode = postContentElem.SelectSingleNode(".//div[@class='jb_quote_container']");
+
+                    return quoteNode == default;
+                }
+
+                return false;
+            }
         }
 
         static async Task<HtmlDocument> ScrapeThread(int id)
@@ -735,6 +805,35 @@ namespace NextGenUpdateArchiver
             else if (response.StatusCode == HttpStatusCode.NotFound)
             {
                 Console.WriteLine($"{userId} not found");
+            }
+        }
+
+        static async Task<HttpResponseMessage> Post(string endpoint, HttpContent content, int tries = 0, bool triggeredLongWait = false)
+        {
+            if (tries == 5)
+            {
+                Console.WriteLine("We got stuck quite a few times. Doing a long wait...");
+                System.Threading.Thread.Sleep(TimeSpan.FromMinutes(5));
+                return await Post(endpoint, content, tries++, true);
+            }
+
+            var response = await client.PostAsync(endpoint, content);
+            if (response.StatusCode == HttpStatusCode.BadGateway)
+            {
+                if (triggeredLongWait)
+                {
+                    Console.WriteLine("No luck after waiting a long time. Let's try again later.");
+                    Environment.Exit(-1);
+                }
+
+                // Banned. Let's wait.
+                Console.WriteLine("Banned. Waiting 5 seconds...");
+                System.Threading.Thread.Sleep(TimeSpan.FromSeconds(5));
+                return await Post(endpoint, content, tries++);
+            }
+            else
+            {
+                return response;
             }
         }
 
